@@ -1,8 +1,5 @@
-<html>
 {% extends 'base.html' %}
 {% block contents %}
-
-<body>
     <h1>Sign Up!</h1>
     <form method="POST" action="{% url 'signup' %}">
         {% csrf_token %}
@@ -22,7 +19,5 @@
 
     </form>
 
-    {% endblock %}
-</body>
+{% endblock %}
 
-</html>
