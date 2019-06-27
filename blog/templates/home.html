@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% block import %}
-
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}" >
 {% endblock %}
 
 
 
 {% block contents %}
     <div>
-        <h1>게시글 확인</h1>
+        <h1 class="main_title">게시글 확인</h1>
     </div>
 
     <br>
