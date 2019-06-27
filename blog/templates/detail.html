@@ -1,11 +1,16 @@
 
 {% extends 'base.html' %}
-{% block contents %}
 
+{% block import %}
+    <link rel="stylesheet" href='/static/css/base.css'></link>
+
+{% endblock %}
+
+{% block contents %}
 <body>
     <div class="container">
         <h1>{{ blog.title }}</h1>
-        <p>{{ blog.pub_date }}</p>
+        <p>{{blog.author}} - {{ blog.pub_date }}</p>
         <p>{{ blog.body}}</p>
         <a href="{% url 'edit' blog.id %}">[수정]</a>
         <a href="{% url 'delete' blog.id %}">[삭제]</a>

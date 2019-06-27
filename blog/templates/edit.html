@@ -1,8 +1,6 @@
 
 {% extends 'base.html' %}
 {% block contents %}
-
-<body>
     <h1>수정 페이지</h1>
     <form method="POST" action="{% url 'edit' blog.id %}">
         {% csrf_token%}
@@ -14,6 +12,5 @@
         <textarea cols="40" rows="10" name="body">{{blog.body}}</textarea>
         <input type="submit" value="수정">
     </form>
-</body>
 {% endblock %}
 

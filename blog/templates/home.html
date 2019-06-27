@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
-{% block contents %}
 
-<body>
+{% block import %}
+
+{% endblock %}
+
+
+
+{% block contents %}
+    <div>
+        <h1>게시글 확인</h1>
+    </div>
+
     <br>
+
     {% for blog in blogs.all %}
     <div class="container">
         <div class="card">
@@ -17,6 +27,6 @@
     </div>
     {% endfor %}
 
-    {% endblock %}
-</body>
+{% endblock %}
+
 

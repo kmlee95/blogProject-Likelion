@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Blog
 from django.utils import timezone
 from .form import BlogPost
+from django.urls import reverse
+from django.conf import settings
+from django.http import HttpResponseNotFound
 # Create your views here.
 
 def home(request):
@@ -10,13 +13,14 @@ def home(request):
 
 def detail(request,blog_id):
     blog_detail = get_object_or_404(Blog,pk=blog_id)
-    return render(request,'detail.html',{'blog':blog_detail})
+    return render(request,'detail.html',{'blog':blog_detail, 'user':request.user, 'blog_id': str(blog_id)})
 
 def create(request):
     blog=Blog()
     blog.title=request.POST['title']
     blog.body= request.POST['body']
     blog.pub_date=timezone.datetime.now()
+    blog.author = request.user
     blog.save()
     return redirect('/blog/'+str(blog.id))
 
@@ -35,9 +39,10 @@ def delete(request,blog_id):
     blog.delete()
     return redirect('/')
     
+
+
 def blogpost(request):
     #1. 입력된 내용을 처리하는 기능 -> POST
-    
     if request.method == 'POST' :
         form = BlogPost(request.POST)
         if form.is_valid():
