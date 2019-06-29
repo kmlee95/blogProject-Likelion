@@ -59,7 +59,7 @@ def blogpost(request):
 
 def search(request):
     if request.method == 'POST':
-        blogList = Blog.objects.filter(title__icontains=request.POST['search'])
+        blogList = Blog.objects.filter(title__icontains=request.POST['search'])#제목에 port 보낸 문자열만 필터링
         return render(request, 'search.html', {'blogs': blogList, 'user': request.user})
     else:
         return HttpResponseNotFound("없는 페이지 입니다.")
