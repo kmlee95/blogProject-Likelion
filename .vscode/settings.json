@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "c:\\Users\\LeeKyungMin\\Desktop\\ProjectFile_8th\\myvenv\\Scripts\\python.exe",
+    "python.pythonPath": "C:\\Python36\\python.exe",
     "python.formatting.provider": "yapf"
 }
